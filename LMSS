@@ -1,0 +1,80 @@
+<?php
+// Start a session
+session_start();
+
+// Include the Paystack API library
+require_once 'paystack-php.php'; // You'll need to download and include the Paystack PHP library
+
+// Database configuration
+$dbHost = 'localhost';
+$dbUser = 'admin';
+$dbPass = 'wadaakor';
+$dbName = 'memoryminder';
+
+// Connect to the database
+$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Process the student registration form
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $mode_of_entry = $_POST['mode_of_entry'];
+    $level = $_POST['level'];
+
+    // Insert student data into the database
+    $sql = "INSERT INTO students (username, password, first_name, last_name, email, mode_of_entry, level) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "sssssss", $username, $password, $first_name, $last_name, $email, $mode_of_entry, $level);
+
+    if (mysqli_stmt_execute($stmt)) {
+        // Redirect to the Paystack payment page
+        $paystack = new Paystack('your_paystack_secret_key'); // Replace with your Paystack secret key
+        $reference = bin2hex(random_bytes(8)); // Generate a unique reference
+        $amount = 10000; // Replace with the actual amount to pay
+
+        $paymentData = [
+            'reference' => $reference,
+            'amount' => $amount * 100, // Amount in kobo
+            'email' => $email,
+        ];
+
+        // Initialize a transaction
+        $transaction = $paystack->transaction->initialize($paymentData);
+
+        // Redirect to Paystack payment page
+        header('Location: ' . $transaction->data->authorization_url);
+        exit;
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
+?>
+
+<!-- HTML form for student registration -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+    <h2>Student Registration</h2>
+    <form method="POST" action="">
+        <!-- Include input fields for username, password, first_name, last_name, email, mode_of_entry, level, etc. -->
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <!-- Include other form fields here -->
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
+

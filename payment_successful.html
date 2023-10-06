@@ -1,0 +1,47 @@
+<?php
+// Include any necessary libraries or configurations here
+
+// Check if the payment was successful (you can use session or database data)
+$isPaymentSuccessful = true; // Set this to true if payment was successful, otherwise, set it to false
+
+if ($isPaymentSuccessful) {
+    // Payment was successful
+
+    // Place any additional processing logic here, such as updating your database or sending confirmation emails
+
+    // Display a success message to the user
+    echo '<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Payment Success</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Include your CSS file here if needed -->
+    </head>
+    <body>
+        <div class="container">
+            <h2>Payment Successful</h2>
+            <p>Your payment was successfully processed.</p>
+        </div>
+    </body>
+    </html>';
+} else {
+    // Payment was not successful
+
+    // Display an error message to the user
+    echo '<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Payment Failure</title>
+        <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Include your CSS file here if needed -->
+    </head>
+    <body>
+        <div class="container">
+            <h2>Payment Failed</h2>
+            <p>Your payment could not be processed. Please try again or contact support.</p>
+        </div>
+    </body>
+    </html>';
+}
+?>
+
+</html>
+

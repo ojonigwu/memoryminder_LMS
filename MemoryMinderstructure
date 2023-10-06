@@ -1,0 +1,41 @@
+school_management/
+│
+├── css/
+│   ├── styles.css        (CSS files)
+│
+├── js/
+│   ├── script.js         (JavaScript files)
+│
+├── includes/
+│   ├── db_connection.php (Database connection script)
+│   ├── header.php         (Common header)
+│   ├── footer.php         (Common footer)
+│
+├── pages/
+│   ├── dashboard.php      (Dashboard page)
+│   ├── student_records.php (Student records page)
+│   ├── course_management.php (Course management page)
+│   ├── admission               (Other pages)
+│
+├── uploads/               (Directory for uploaded files)
+│
+├── lib/                   (Third-party libraries, e.g., Paystack PHP library)
+│   ├── paystack-php.php
+│
+├── index.php              (Main entry point or homepage)
+├── login.php              (Login page)
+├── logout.php             (Logout script)
+├── add_student.php        (Add student page)
+├── edit_student.php       (Edit student page)
+├── delete_student.php     (Delete student page)
+├── add_course.php         (Add course page)
+├── edit_course.php        (Edit course page)
+├── delete_course.php      (Delete course page)
+├── payment_callback.php   (Payment callback page)
+├── payment_success.php    (Payment success page)
+├── payment_failure.php    (Payment failure page)
+├── unauthorized.php       (Unauthorized access page)
+├── audit.log              (Audit trail log file)
+│
+├── .htaccess              (Apache configuration file, if needed)
+

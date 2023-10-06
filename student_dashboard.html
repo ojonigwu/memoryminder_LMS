@@ -1,0 +1,26 @@
+<?php
+// Check if the student is logged in, if not, redirect to the login page
+if (!isset($_SESSION['student_id'])) {
+    header('Location: login.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <!-- Include your CSS file here if needed -->
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, Student!</h2>
+        <ul>
+            <li><a href="profile.php">View Profile</a></li>
+            <li><a href="payment_history.php">Payment History</a></li>
+            <!-- Add more links to other features as needed -->
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
