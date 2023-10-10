@@ -20,34 +20,3 @@ Once you have setup an account with the desired cloud service provider, click on
 ## Built With
 
 
-Backend
-
-* [Node.JS](https://nodejs.org/en/) - Back End Scripting Language
-* [Express](https://expressjs.com/en/api.html) - Web Application Framework for Node.js
-* [Passport](http://www.passportjs.org/) - Authentication Middleware for Node.js.
-
-* [MongoDB](https://www.mongodb.com/) - NoSQL Database
-* [Mongoose](https://mongoosejs.com/docs/) - Object Data Modeling (ODM) library for MongoDB and Node.js
-
-Frontend
-
-* [React.js](https://reactjs.org/) - Javascript Library 
-* [React Bootstrap](https://react-bootstrap.github.io/) - Bootstrap (CSS Library/Framework) for React.js
-
-Others
-
-* [Babel](https://babeljs.io/docs/en/) - Javascript Compiler
-* [Webpack](https://webpack.js.org/concepts/) - Static Module Bundler
-
-Unit Testing
-
-* [Mocha](https://mochajs.org/) - JavaScript Test Framework
-* [Chai](https://www.chaijs.com/) -  BDD / TDD Assertion Library
-* [Enzyme](https://enzymejs.github.io/enzyme/) - JavaScript Testing Utility for React
-
-Ubuntu Server Software
-
-* [PM2](https://pm2.keymetrics.io/) - Production Process Manager for Node.js
-* [NGINIX](https://www.nginx.com/) - Web Server
-* [UFW](https://help.ubuntu.com/community/UFW) - Program for Managing a Netfilter Firewall 
-
